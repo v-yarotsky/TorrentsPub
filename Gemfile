@@ -6,6 +6,7 @@ gem 'json', '~> 1.7'
 gem 'slim', '~> 1.2'
 gem 'sass', '~> 3.1'
 gem 'rake', '~> 0.9'
+gem 'sprockets', '~> 2.0'
 
 group :development, :test do
   gem 'jasmine-headless-webkit', '~> 0.8'
