@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'bundler'
 require 'jasmine-headless-webkit'
+require 'rack'
 
 begin
   Bundler.setup(:default, :development)
@@ -24,6 +25,12 @@ Jasmine::Headless::Task.new('jasmine') do |t|
   t.jasmine_config = 'spec/coffeescripts/support/jasmine.yml'
 end
 
-task :default => :spec
+task :server do
+  server = Rack::Server.new
+  server.options.merge! :config => 'config.ru'
+  server.start
+end
+
+task :default => :server
 
 
