@@ -7,3 +7,4 @@ nohup.out
 pkg/
 coverage/
 .sass-cache/
+.jhw-cache/
