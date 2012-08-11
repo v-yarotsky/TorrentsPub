@@ -4,5 +4,5 @@ helpers:
   - helpers/**/*
 spec_files:
   - "**/*_spec.*"
-src_dir: assets/coffeescripts
-spec_dir: spec/coffeescripts
+src_dir: assets/backbone
+spec_dir: spec/backbone

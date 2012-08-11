@@ -22,7 +22,7 @@ end
 Jasmine::Headless::Task.new('jasmine') do |t|
   t.colors = true
   t.keep_on_error = true
-  t.jasmine_config = 'spec/coffeescripts/support/jasmine.yml'
+  t.jasmine_config = 'spec/backbone/support/jasmine.yml'
 end
 
 task :server do

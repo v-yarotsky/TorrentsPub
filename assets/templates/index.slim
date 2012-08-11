@@ -6,7 +6,6 @@ html lang="en"
     title TorrentsPub
     script type="text/javascript" src="/assets/javascripts/vendor.js"
     script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"
-    script type="text/javascript" src="/assets/templates.js"
     script type="text/javascript" src="/assets/application.js"
     link   rel="stylesheet" type="text/css" href="/assets/application.css"
     link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css"
@@ -23,63 +22,17 @@ html lang="en"
           a.brand href="#" TorrentsPub
           div.nav-collapse
             ul.nav
-              li.active
-                a href="#" Torrents
-              li
-                a href="#" Downloads
+              li.active: a href="#" Torrents
+              li: a href="#" Downloads
             ul.nav.pull-right
-              li
-                a href="#" Settings
+              li: a href="#" Settings
     div.container-fluid
       div.row-fluid
-        div.span9
-          table.table.table-condensed.category.category-magenta
-            thead
-              tr
-                th.title colspan="4" Series
-              tr
-                th Title
-                th Seeders
-                th Size
-                th
-            tbody
-              tr
-                td Hello world
-                td.seeders 400
-                td.size 200 MB
-                td.btn-group.actions
-                  a.btn.btn-mini.btn-primary href="#" title="Download"
-                    i.icon-download.icon-white
-                  a.btn.btn-mini.btn-danger href="#" title="Delete"
-                    i.icon-trash.icon-white
-              tr
-                td Kill humans
-                td.seeders 400
-                td.size 200 MB
-                td.btn-group.actions
-                  a.btn.btn-mini.btn-primary href="#" title="Download"
-                    i.icon-download.icon-white
-                  a.btn.btn-mini.btn-danger href="#" title="Delete"
-                    i.icon-trash.icon-white
-              tr
-                td Kill humans
-                td.seeders 400
-                td.size 200 MB
-                td.btn-group.actions
-                  a.btn.btn-mini.btn-primary href="#"
-                    i.icon-download.icon-white
-                  a.btn.btn-mini.btn-danger href="#"
-                    i.icon-trash.icon-white
-            tfoot
-              tr
-                th colspan="4"
-                  div.pull-right
-                    a.btn.btn-small
-                      | More &rarr;
-        div.span3
-          div.well.sidebar-nav
-            ul.nav.nav-list
-              li#categories.nav-header Categories
+        div.span10
+        div.span2
+          div.well.sidebar
+            span.header Categories
+            ul#categories.nav.nav-list
               li
                 a href="#"
                   span.pill.category-magenta
@@ -92,25 +45,20 @@ html lang="en"
                 a href="#"
                   span.pill.category-green
                   | Music
-              li#trackers.nav-header.collapsible Trackers
-              li
-                form class="form-inline"
-                  label.checkbox
-                    input type="checkbox" checked="checked"
-                    | Rutracker.org
-              li
-                form class="form-inline"
-                  label.checkbox
-                    input type="checkbox" checked="checked"
-                    | Torrents.by
-              li#filters.nav-header Filters
-              li
-                form class="form-inline"
-                  label.checkbox
-                    input type="checkbox" checked="checked"
-                    | Hide duplicates
+            span.header Trackers
+            form class="form-inline"
+              label.checkbox
+                input type="checkbox" checked="checked"
+                | Rutracker.org
+              label.checkbox
+                input type="checkbox" checked="checked"
+                | Torrents.by
+            span.header Filters
+            form class="form-inline"
+              label.checkbox
+                input type="checkbox" checked="checked"
+                | Hide duplicates
       hr
       footer
-        p
-          | © 2012, Vladimir Yarotsky
+        p © 2012, Vladimir Yarotsky
           

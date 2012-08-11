@@ -1,0 +1,51 @@
+<table class="table table-condensed category">
+  <thead>
+    <tr>
+      <th class="title" colspan="4">Series</th>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <th>Seeders</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hello world</th>
+      <td class="seeders">400</td>
+      <td class="size">200 MB</td>
+      <td class="btn-group actions">
+        <a class="btn btn-mini btn-primary" href="#" title="Download">
+          <i class="icon-download icon-white"></i>
+        </a>
+        <a class="btn btn-mini btn-danger" href="#" title="Delete">
+          <i class="icon-trash icon-white"></i>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>Hello world</th>
+      <td class="seeders">400</td>
+      <td class="size">200 MB</td>
+      <td class="btn-group actions">
+        <a class="btn btn-mini btn-primary" href="#" title="Download">
+          <i class="icon-download icon-white"></i>
+        </a>
+        <a class="btn btn-mini btn-danger" href="#" title="Delete">
+          <i class="icon-trash icon-white"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="4">
+        <div class="pull-right">
+          <a class="btn btn-small">More &rarr;</a>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+

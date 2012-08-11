@@ -1,0 +1,30 @@
+$green: #f9fff7
+$blue: #f2f7ff
+$magenta: #f5f2ff
+
+@function pair-name($c)
+  @return nth($c, 1)
+
+@function pair-color($c)
+  @return nth($c, 2)
+
+@function border-color($c)
+  @return darken(desaturate(pair-color($c), 80%), 30%)
+
+@function darker-bgcolor($c)
+  @return darken(pair-color($c), 2%)
+
+@each $c in (green, $green), (blue, $blue), (magenta, $magenta)
+  .category-#{pair-name($c)}
+    background-color: pair-color($c)
+    border-color: border-color($c)
+
+  .table.category-#{pair-name($c)}
+    th.title
+      background-color: darker-bgcolor($c)
+    th, td
+      border-color: border-color($c)
+
+  .pill.category-#{pair-name($c)}
+    background-color: darker-bgcolor($c)
+

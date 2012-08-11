@@ -1,0 +1,27 @@
+@import "mixins.css.sass"
+
+.table.category 
+  @include bordered
+  border-collapse: separate
+  -webkit-border-radius: 5px
+  border-radius: 5px
+
+  th, td
+    border-top-width: 1px
+    border-top-style: solid
+
+  th.title
+    text-align: center
+    -webkit-border-top-left-radius: 5px
+    -webkit-border-top-right-radius: 5px
+    border-top-left-radius: 5px
+    border-top-right-radius: 5px
+
+  .size
+    width: 70px
+  .seeders
+    width: 70px
+  .actions
+    width: 60px
+
+

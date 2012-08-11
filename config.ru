@@ -5,7 +5,7 @@ require 'torrents_pub'
 map '/assets' do
   sprockets = Sprockets::Environment.new
 
-  %w(coffeescripts stylesheets js_templates vendor).each do |dir|
+  %w(backbone stylesheets vendor).each do |dir|
     sprockets.append_path File.join(TorrentsPub::ROOT, 'assets', dir)
   end
 
