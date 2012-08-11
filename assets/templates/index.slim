@@ -1,21 +1,116 @@
 doctype html
-html
+html lang="en"
   head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title TorrentsPub
-  script type="text/javascript" src="/assets/javascripts/vendor.js"
-  script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"
-  script type="text/javascript" src="/assets/templates.js"
-  script type="text/javascript" src="/assets/application.js"
-  link   rel="stylesheet" type="text/css" media="screen" href="/assets/bootstrap/css/bootstrap.css"
-  link   rel="stylesheet" type="text/css" media="screen" href="/assets/application.css"
+    script type="text/javascript" src="/assets/javascripts/vendor.js"
+    script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"
+    script type="text/javascript" src="/assets/templates.js"
+    script type="text/javascript" src="/assets/application.js"
+    link   rel="stylesheet" type="text/css" href="/assets/application.css"
+    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css"
+    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-responsive.css"
 
   body
     div.navbar.navbar-fixed-top
       div.navbar-inner
-        div.container
+        div.container-fluid
+          a.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           a.brand href="#" TorrentsPub
-          ul.nav
-            li
-          ul.nav.pull-right
-            li
-    div.container
+          div.nav-collapse
+            ul.nav
+              li.active
+                a href="#" Torrents
+              li
+                a href="#" Downloads
+            ul.nav.pull-right
+              li
+                a href="#" Settings
+    div.container-fluid
+      div.row-fluid
+        div.span9
+          table.table.table-condensed.category.category-magenta
+            thead
+              tr
+                th.title colspan="4" Series
+              tr
+                th Title
+                th Seeders
+                th Size
+                th
+            tbody
+              tr
+                td Hello world
+                td.seeders 400
+                td.size 200 MB
+                td.btn-group.actions
+                  a.btn.btn-mini.btn-primary href="#" title="Download"
+                    i.icon-download.icon-white
+                  a.btn.btn-mini.btn-danger href="#" title="Delete"
+                    i.icon-trash.icon-white
+              tr
+                td Kill humans
+                td.seeders 400
+                td.size 200 MB
+                td.btn-group.actions
+                  a.btn.btn-mini.btn-primary href="#" title="Download"
+                    i.icon-download.icon-white
+                  a.btn.btn-mini.btn-danger href="#" title="Delete"
+                    i.icon-trash.icon-white
+              tr
+                td Kill humans
+                td.seeders 400
+                td.size 200 MB
+                td.btn-group.actions
+                  a.btn.btn-mini.btn-primary href="#"
+                    i.icon-download.icon-white
+                  a.btn.btn-mini.btn-danger href="#"
+                    i.icon-trash.icon-white
+            tfoot
+              tr
+                th colspan="4"
+                  div.pull-right
+                    a.btn.btn-small
+                      | More &rarr;
+        div.span3
+          div.well.sidebar-nav
+            ul.nav.nav-list
+              li#categories.nav-header Categories
+              li
+                a href="#"
+                  span.pill.category-magenta
+                  | Movies
+              li
+                a href="#"
+                  span.pill.category-blue
+                  | Series
+              li
+                a href="#"
+                  span.pill.category-green
+                  | Music
+              li#trackers.nav-header.collapsible Trackers
+              li
+                form class="form-inline"
+                  label.checkbox
+                    input type="checkbox" checked="checked"
+                    | Rutracker.org
+              li
+                form class="form-inline"
+                  label.checkbox
+                    input type="checkbox" checked="checked"
+                    | Torrents.by
+              li#filters.nav-header Filters
+              li
+                form class="form-inline"
+                  label.checkbox
+                    input type="checkbox" checked="checked"
+                    | Hide duplicates
+      hr
+      footer
+        p
+          | © 2012, Vladimir Yarotsky
+          

@@ -1,0 +1,53 @@
+$green: #f9fff7
+$blue: #f2f7ff
+$magenta: #f5f2ff
+
+@each $c in (green, $green), (blue, $blue), (magenta, $magenta)
+  .category-#{nth($c, 1)}
+    background-color: nth($c, 2)
+    border-color: darken(desaturate(nth($c, 2), 80%), 30%)
+
+  .table.category-#{nth($c, 1)}
+    th.title
+      background-color: darken(nth($c, 2), 2%)
+  .pill.category-#{nth($c, 1)}
+    background-color: darken(nth($c, 2), 2%)
+
+.pill
+  float: left
+  -webkit-border-radius: 8px
+  border-radius: 8px
+  width: 2em
+  height: 1em
+  margin-right: 0.5em
+  margin-left: -2em
+  border-width: 1px
+  border-style: solid
+
+.table.category 
+  border-collapse: separate
+  border-width: 1px
+  border-style: solid
+  -webkit-border-radius: 5px
+  border-radius: 5px
+
+  th, td
+    border-top-width: 1px
+    border-top-style: solid
+    border-color: inherit
+
+  th.title
+    text-align: center
+    -webkit-border-top-left-radius: 5px
+    -webkit-border-top-right-radius: 5px
+    border-top-left-radius: 5px
+    border-top-right-radius: 5px
+
+  .size
+    width: 70px
+  .seeders
+    width: 70px
+  .actions
+    width: 60px
+
+
