@@ -2,12 +2,12 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.CategoriesView extends Backbone.View
   initialize: ->
-    @categories = ['foo', 'bar']
+    @render()
 
   render: =>
     @$el.empty()
-    for category in @categories
-      categoryView = new TorrentsPub.CategoryView({ model: category })
+    for category in @collection.models
+      categoryView = new TorrentsPub.CategoryView(model: category)
       @$el.append(categoryView.render().el)
     @
 

@@ -2,5 +2,5 @@
 #= require_self
 
 $ ->
-  window.torrentsView = new window.TorrentsPub.TorrentsView()
-  window.torrentsView.render()
+  window.torrentsRouter = new TorrentsPub.TorrentsRouter()
+  Backbone.history.start()
