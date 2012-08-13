@@ -1,0 +1,19 @@
+<style type="text/css">
+  .color-<%= this.id %> {
+    background-color: <%= this.base %>;
+    border-color: <%= this.border %>;
+  }
+  
+  .table.color-<%= this.id %> th, .table.color-<%= this.id%> td {
+    border-color: <%= this.border %>;
+  }
+    
+  .table.color-<%= this.id %> th.title {
+    background-color: <%= this.bright %>
+  }
+
+  .pill.color-<%= this.id %> {
+    background-color: <%= this.bright %>; 
+  }
+</style>
+

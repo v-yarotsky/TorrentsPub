@@ -2,15 +2,14 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.Category extends Backbone.Model
   defaults:
-    color: "green"
     visible: true
 
   initialize: ->
-    @activeColor = @get('color')
+    @activeColorClass = @get('colorClass')
 
   toggle: ->
     if @get('visible') == true
-      @set(visible: false, color: "gray")
+      @set(visible: false, colorClass: "gray")
     else
-      @set(visible: true, color: @activeColor)
+      @set(visible: true, colorClass: @activeColorClass)
 

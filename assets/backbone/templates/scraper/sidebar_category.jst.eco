@@ -1,2 +1,2 @@
-<a href="#"><span class="pill category-<%= this.color %>"></span><%= this.name %></a>
+<a href="#"><span class="pill <%= this.colorClass %>"></span><%= this.name %></a>
 

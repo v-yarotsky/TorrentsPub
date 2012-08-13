@@ -1,0 +1,7 @@
+<td><%= this.name %></td>
+<td class="actions">
+  <a class="btn btn-mini btn-primary" href="#" title="Edit">
+    <i class="icon-edit icon-white"></i>
+  </a>
+</td>
+

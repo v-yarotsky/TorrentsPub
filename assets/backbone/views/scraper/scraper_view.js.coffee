@@ -4,15 +4,14 @@ class TorrentsPub.ScraperView extends Backbone.View
   template: JST["templates/scraper/scraper"]
 
   initialize: ->
-    @colors = ['green', 'blue', 'magenta']
+    @colorGenerator = new TorrentsPub.ColorGenerator()
     @categories = new TorrentsPub.Categories()
     @categorize(@options.torrents)
 
   categorize: (torrents) ->
     categories = _([])
     for torrent in torrents
-      category = categories.find (c) ->
-        c.get('name') == torrent.category
+      category = categories.find (c) -> c.get('name') == torrent.category
       if category
         category.get('torrents').push(@instantiateTorrent(torrent))
       else
@@ -20,9 +19,9 @@ class TorrentsPub.ScraperView extends Backbone.View
         categories.push(category)
     @categories.reset(categories.values())
 
-  instantiateTorrent: (torrent) -> new TorrentsPub.Torrent(torrent)
-  instantiateCategory: (torrent) -> new TorrentsPub.Category(name: torrent.category, color: @nextCategoryColor(), torrents: [@instantiateTorrent(torrent)])
-  nextCategoryColor: => @colors.shift()
+  instantiateTorrent: (torrent)  -> new TorrentsPub.Torrent(torrent)
+  instantiateCategory: (torrent) -> new TorrentsPub.Category(name: torrent.category, colorClass: @nextCategoryColor(), torrents: [@instantiateTorrent(torrent)])
+  nextCategoryColor: => @colorGenerator.nextColor()
 
       
   render: =>

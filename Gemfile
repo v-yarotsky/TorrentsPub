@@ -8,7 +8,9 @@ gem 'sass', '~> 3.1'
 gem 'eco', '~> 1.0'
 gem 'rake', '~> 0.9'
 gem 'sprockets', '~> 2.0'
-gem 'slapjack', :git => '/Users/vladimiryarotsky/Projects/slapjack'
+gem 'slapjack', :path => '/Users/vladimiryarotsky/Projects/slapjack'
+gem 'datamapper'
+gem 'dm-sqlite-adapter'
 
 group :development, :test do
   gem 'jasmine-headless-webkit', '~> 0.8'

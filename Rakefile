@@ -3,6 +3,10 @@ require 'rubygems'
 require 'bundler'
 require 'jasmine-headless-webkit'
 require 'rack'
+require 'trackers/torrents_by'
+require 'data_mapper'
+$:.unshift File.join(File.dirname(__FILE__), 'lib')
+require 'torrents_pub/app'
 
 begin
   Bundler.setup(:default, :development)

@@ -1,0 +1,47 @@
+<h1>Edit tracker</h1>
+<form id="edit-tracker" class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="name">Name</label>
+    <div class="controls">
+      <input type="text" name="name" value="<%= this.name %>"/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="login_url">Login page url</label>
+    <div class="controls">
+      <input type="text" name="login_url" value="<%= this.login_url %>"/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="login">Login</label>
+    <div class="controls">
+      <input type="text" name="login" value="<%= this.login %>"/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="password">Password</label>
+    <div class="controls">
+      <input type="password" name="password" value="<%= this.password %>"/>
+    </div>
+  </div>
+
+  <div id="rules" class="well form-inline">
+    <div class="rule">
+      <input type="text" name="category" placeholder="Category" />
+      <input type="text" name="tracker_section" placeholder="Tracker section" />
+      <input type="text" name="required_keywords" placeholder="Required keywords"/>
+      <input type="text" name="denied_keywords" placeholder="Denied keywords"/>
+      <input type="text" name="min_seeders" placeholder="Min seeders"/>
+      <a href="#" class="btn btn-danger" title="Remove">Remove</a>
+    </div>
+    <div class="rule">
+      <input type="text" name="category" placeholder="Category" />
+      <input type="text" name="tracker_section" placeholder="Tracker section" />
+      <input type="text" name="required_keywords" placeholder="Required keywords"/>
+      <input type="text" name="denied_keywords" placeholder="Denied keywords"/>
+      <input type="text" name="min_seeders" placeholder="Min seeders"/>
+      <a href="#" class="btn btn-danger" title="Remove">Remove</a>
+    </div>
+  </div>
+</form>
+

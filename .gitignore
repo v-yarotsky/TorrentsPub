@@ -8,3 +8,4 @@ pkg/
 coverage/
 .sass-cache/
 .jhw-cache/
+*.db
