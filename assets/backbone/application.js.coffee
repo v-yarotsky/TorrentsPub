@@ -2,5 +2,6 @@
 #= require_self
 
 $ ->
-  window.torrentsRouter = new TorrentsPub.TorrentsRouter()
+  window.router = new TorrentsPub.ApplicationRouter()
   Backbone.history.start()
+

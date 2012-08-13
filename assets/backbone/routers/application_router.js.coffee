@@ -1,6 +1,6 @@
 window.TorrentsPub ?= {}
 
-class TorrentsPub.TorrentsRouter extends Backbone.Router
+class TorrentsPub.ApplicationRouter extends Backbone.Router
   routes:
     '': 'scraper'
     'scraper': 'scraper'
@@ -9,7 +9,7 @@ class TorrentsPub.TorrentsRouter extends Backbone.Router
     @elements =
       'container': $("#container")
 
-    @scraperView = new TorrentsPub.ScraperView()
+    @scraperView = new TorrentsPub.ScraperView(torrents: window.torrents)
 
   scraper: =>
     @elements["container"].html(@scraperView.render().el)
