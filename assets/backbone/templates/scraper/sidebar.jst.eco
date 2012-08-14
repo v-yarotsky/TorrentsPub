@@ -13,14 +13,18 @@
   </ul>
   <span class="header">Trackers</span>
   <form class="form-inline"> 
-    <label class="checkbox">
-      <input type="checkbox" checked="checked"/>
-      Rutracker.org
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" checked="checked"/>
-      Torrents.by
-    </label>
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" checked="checked"/>
+        Rutracker.org
+      </label>
+    </div>
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" checked="checked"/>
+        Torrents.by
+      </label>
+    </div>
   </form>
   <span class="header">Filters</span>
   <form class="form-inline"> 
