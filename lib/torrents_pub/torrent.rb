@@ -4,8 +4,8 @@ module TorrentsPub
 
     property :id, Serial
     property :title, String
-    property :size, String
-    property :seeders, Numeric
+    property :size, Float
+    property :seeders, Integer
     property :link, String
     property :tracker_link, String
     property :tracker, String

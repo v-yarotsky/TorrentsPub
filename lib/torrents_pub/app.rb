@@ -19,7 +19,7 @@ module TorrentsPub
     end
 
     get '/trackers/:id' do
-      @tracker = Tracker.first(params[:id])
+      @tracker = Tracker.get(params[:id])
       @tracker.to_json
     end
   end

@@ -1,0 +1,25 @@
+#= depend_on models/torrent.js
+
+window.TorrentsPub ?= {}
+
+class TorrentsPub.CategoryTorrents extends Backbone.Collection
+  model: TorrentsPub.Torrent
+  sortAttr: 'title'
+  sortAsc: true
+
+  sortBy: (field) =>
+    if @sortAttr == field
+      @sortAsc = !@sortAsc
+    else
+      @sortAttr = field
+      @sortAsc = true
+    @sort()
+
+  comparator: (t1, t2) =>
+    direction = if @sortAsc is true then 1 else -1
+    t1Attr = t1.get(@sortAttr)
+    t2Attr = t2.get(@sortAttr)
+    if t1Attr.toLowerCase?
+      return if t1Attr.toLowerCase() >= t2Attr.toLowerCase() then direction else -direction
+    if t1Attr >= t2Attr then direction else -direction
+

@@ -4,9 +4,9 @@
       <th class="title" colspan="4"><%= this.name %></th>
     </tr>
     <tr>
-      <th>Title</th>
-      <th>Seeders</th>
-      <th>Size</th>
+      <th data-sortfield="title">Title</th>
+      <th data-sortfield="seeders">Seeders</th>
+      <th data-sortfield="size">Size</th>
       <th></th>
     </tr>
   </thead>

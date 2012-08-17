@@ -19,8 +19,17 @@ class TorrentsPub.ScraperView extends Backbone.View
         categories.push(category)
     @categories.reset(categories.values())
 
+  instantiateCategory: (torrent) ->
+    torrents = new TorrentsPub.CategoryTorrents()
+    torrents.reset(@instantiateTorrent(torrent))
+
+    new TorrentsPub.Category
+      name: torrent.category
+      colorClass: @nextCategoryColor()
+      torrents: torrents
+
   instantiateTorrent: (torrent)  -> new TorrentsPub.Torrent(torrent)
-  instantiateCategory: (torrent) -> new TorrentsPub.Category(name: torrent.category, colorClass: @nextCategoryColor(), torrents: [@instantiateTorrent(torrent)])
+
   nextCategoryColor: => @colorGenerator.nextColor()
 
       
