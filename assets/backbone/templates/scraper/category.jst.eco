@@ -1,7 +1,17 @@
 <table class="table table-condensed category <%= this.colorClass %>">
   <thead>
     <tr>
-      <th class="title" colspan="4"><%= this.name %></th>
+      <th class="title" colspan="4">
+        <div class="search controls">
+          <div class="input-prepend">
+            <span class="add-on">
+              <i class="icon-search"></i>
+            </span>
+            <input type="search" class="input-medium filter" placeholder="Search..."/>
+          </div>
+        </div>
+        <%= this.name %>
+      </th>
     </tr>
     <tr>
       <th data-sortfield="title">Title</th>
