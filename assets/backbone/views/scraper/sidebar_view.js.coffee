@@ -2,10 +2,10 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.SidebarView extends Backbone.View
   template: JST["templates/scraper/sidebar"]
+  tagName: 'div'
+  id: 'sidebar'
+  className: 'span3'
 
-  initialize: ->
-    @render()
-  
   render: =>
     @$el.html(@template())
     $categoriesContainer = @$("#categories-list")

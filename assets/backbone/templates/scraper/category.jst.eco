@@ -1,4 +1,4 @@
-<table class="table table-condensed category <%= this.colorClass %>">
+<table class="table table-condensed category <%= this.activeColorClass %>">
   <thead>
     <tr>
       <th class="title" colspan="4">

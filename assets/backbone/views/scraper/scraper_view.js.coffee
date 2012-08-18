@@ -1,12 +1,12 @@
 window.TorrentsPub ?= {}
 
 class TorrentsPub.ScraperView extends Backbone.View
-  template: JST["templates/scraper/scraper"]
-
   initialize: ->
     @colorGenerator = new TorrentsPub.ColorGenerator()
     @categories = new TorrentsPub.Categories()
     @categorize(@options.torrents)
+    @categoriesView ?= new TorrentsPub.CategoriesView(collection: @categories)
+    @sidebarView ?= new TorrentsPub.SidebarView(collection: @categories)
 
   categorize: (torrents) ->
     categories = _([])
@@ -32,10 +32,9 @@ class TorrentsPub.ScraperView extends Backbone.View
 
   nextCategoryColor: => @colorGenerator.nextColor()
 
-      
   render: =>
-    @$el.html(@template())
-    @categoriesView ?= new TorrentsPub.CategoriesView(el: @$("#categories"), collection: @categories)
-    @sidebarView ?= new TorrentsPub.SidebarView(el: @$("#sidebar"), collection: @categories)
+    @$el.empty()
+    @$el.append(@sidebarView.render().el)
+    @$el.append(@categoriesView.render().el)
     @
 

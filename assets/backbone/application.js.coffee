@@ -3,5 +3,5 @@
 
 $ ->
   window.router = new TorrentsPub.ApplicationRouter()
-  Backbone.history.start()
+  Backbone.history.start(pushState: true)
 

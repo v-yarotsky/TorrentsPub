@@ -10,15 +10,16 @@ class TorrentsPub.CategoryView extends Backbone.View
   initialize: ->
     @model.bind('change:visible', @toggle)
     @torrents = @model.get('torrents')
-    @torrents.bind('reset', @renderTorrents)
-    @torrents.bind('filter', @renderTorrents)
-    @torrents.bind('sort', @renderHeader)
+    @torrents.on('reset', @renderTorrents)
+    @torrents.on('filter', @renderTorrents)
+    @torrents.on('sort', @renderHeader)
 
   toggle: =>
     @$el.toggle(@model.get('visible'))
 
   render: =>
     @$el.html(@template(@model.toJSON()))
+    @toggle()
     @renderTorrents(@torrents.models)
     @
 
@@ -26,7 +27,8 @@ class TorrentsPub.CategoryView extends Backbone.View
     $torrentsContainer = @$("tbody")
     $torrentsContainer.empty()
     for torrent in @torrents.models
-      $torrentsContainer.append(new TorrentsPub.TorrentView(model: torrent).render().el)
+      torrentView = new TorrentsPub.TorrentView(model: torrent)
+      $torrentsContainer.append(torrentView.render().el)
     @
 
   renderHeader: =>

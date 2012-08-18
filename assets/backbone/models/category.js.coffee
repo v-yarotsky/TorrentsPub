@@ -5,11 +5,11 @@ class TorrentsPub.Category extends Backbone.Model
     visible: true
 
   initialize: ->
-    @activeColorClass = @get('colorClass')
+    @set(activeColorClass: @get('colorClass'))
 
   toggle: ->
     if @get('visible') == true
       @set(visible: false, colorClass: "gray")
     else
-      @set(visible: true, colorClass: @activeColorClass)
+      @set(visible: true, colorClass: @get('activeColorClass'))
 

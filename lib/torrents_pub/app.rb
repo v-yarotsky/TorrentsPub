@@ -9,11 +9,6 @@ module TorrentsPub
   class App < Sinatra::Base
     set :views, File.join(TorrentsPub::ROOT, 'assets', 'templates')
 
-    get '/' do
-      @torrents = Torrent.all
-      slim :index, :torrents => @torrents
-    end
-
     get '/trackers' do
       @trackers = Tracker.all
       @trackers.to_json
@@ -27,6 +22,12 @@ module TorrentsPub
         404
       end
     end
+
+    get '*' do
+      @torrents = Torrent.all
+      slim :index, :torrents => @torrents
+    end
+
   end
 end
 
