@@ -9,12 +9,12 @@ module TorrentsPub
   class App < Sinatra::Base
     set :views, File.join(TorrentsPub::ROOT, 'assets', 'templates')
 
-    get '/trackers' do
+    get '/trackers', provides: :json do
       @trackers = Tracker.all
       @trackers.to_json
     end
 
-    get '/trackers/:id' do
+    get '/trackers/:id', provides: :json do
       @tracker = Tracker.get(params[:id])
       if @tracker
         @tracker.to_json

@@ -12,10 +12,23 @@
   border-color: rgba(2, 20, 20, 0.1)
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
   margin-bottom: 18px
+  opacity: 1
+  -webkit-transition: opacity .2s linear
+  -moz-transition:    opacity .2s linear
+  -o-transition:      opacity .2s linear
+  transition:         opacity .2s linear
 
   &:empty
-    display: none
+    height: 0
+    opacity: 0
+    -webkit-transition: none
+    -moz-transition:    none
+    -o-transition:      none
+    transition:         none
   
+  .alert
+    margin-bottom: 10px
+
   .alert:last-child
     margin-bottom: 0
 

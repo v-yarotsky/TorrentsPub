@@ -21,7 +21,7 @@ class TorrentsPub.NavigationView extends Backbone.View
     $navItems.removeClass("active")
     $navItem = @$("a[href='#{route}']").closest("li")
     $navItem.addClass('active')
-    @trigger("navigate", route)
+    window.eventDispatcher.trigger("navigate", route)
 
   render: =>
     @$el.html(@template())

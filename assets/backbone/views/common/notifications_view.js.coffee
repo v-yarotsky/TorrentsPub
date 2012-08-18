@@ -2,14 +2,17 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.NotificationsView extends Backbone.View
   initialize: ->
-    @collection.bind('add', @render)
+    @collection.bind('add', @renderNotification)
     @render()
+
+  renderNotification: (notification) =>
+    notificationView = new TorrentsPub.NotificationView(model: notification)
+    @$el.prepend(notificationView.render().el)
 
   render: =>
     @$el.empty()
     for notification in @collection.models
-      notificationView = new TorrentsPub.NotificationView(model: notification)
-      @$el.prepend(notificationView.render().el)
+      @renderNotification(notification)
     @
 
 

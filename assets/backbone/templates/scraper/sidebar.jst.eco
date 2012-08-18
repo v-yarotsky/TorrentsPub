@@ -11,6 +11,7 @@
       <a href="#"><span class="pill category-green"></span>Music</a>
     </li>
   </ul>
+  <!--
   <span class="header">Trackers</span>
   <form class="form-inline"> 
     <div class="controls">
@@ -32,5 +33,6 @@
       <input type="checkbox" checked="checked"/>
       Hide duplicates
     </label>
-  </form
-</div
+  </form>
+  -->
+</div>

@@ -4,7 +4,7 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
   routes:
     'scraper': 'scraper'
     'settings': 'settings'
-    'settings/:trackerId': 'editTracker'
+    'trackers/:trackerId': 'editTracker'
     'downloads': 'downloads'
 
   initialize: ->
@@ -21,10 +21,18 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
 
     @downloadsView = new TorrentsPub.DownloadsView()
     @navigationView = new TorrentsPub.NavigationView(el: @elements["navigation"])
-    @navigationView.on('navigate', @navigateTo)
+    window.eventDispatcher.on('navigate', @navigateTo)
+
+    window.eventDispatcher.on 'notification:error', (params) =>
+      window.notifications.push(_.extend(params, type: 'error'))
+
+    window.eventDispatcher.on 'notification:info', (params) =>
+      window.notifications.push(_.extend(params, type: 'info'))
+
     @navigationView.navigate('scraper')
 
   navigateTo: (route) =>
+    console.log "Navigating to: #{route}"
     @navigate(route, trigger: true)
 
   scraper: =>
@@ -41,7 +49,7 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
         @elements["container"].html(editTrackerView.render().el)
       error: =>
         @navigate('settings', trigger: true)
-        @notifications.push(type: 'error', message: "Could not find tracker with id #{trackerId}")
+        window.eventDispatcher.trigger('notification:error', message: "Could not find tracker with id #{trackerId}")
 
   downloads: =>
     @elements["container"].html(@downloadsView.render().el)

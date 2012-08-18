@@ -1,14 +1,18 @@
 window.TorrentsPub ?= {}
 
 class TorrentsPub.SettingsView extends Backbone.View
-  template: JST["templates/settings/settings"]
+  id: 'trackers'
+  className: 'span6'
 
   initialize: ->
     @trackers = new TorrentsPub.Trackers()
-    @trackers.fetch()
 
   render: =>
-    @$el.html(@template())
-    @trackersView ?= new TorrentsPub.TrackersView(collection: @trackers, el: @$("#trackers"))
+    @$el.empty()
+    @trackers.fetch
+      success: =>
+        @trackersView = new TorrentsPub.TrackersView(collection: @trackers)
+        @$el.html(@trackersView.render().el)
+      error: => window.eventDispatcher.trigger('notification:error', title: 'No trackers found', message: 'There are no defined trackers.')
     @
 
