@@ -1,0 +1,4 @@
+<a class="close" href="#">×</a>
+<h4><%= this.title %></h4>
+<%= this.message %>
+

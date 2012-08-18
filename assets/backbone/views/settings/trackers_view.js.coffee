@@ -4,6 +4,7 @@ class TorrentsPub.TrackersView extends Backbone.View
   template: JST["templates/settings/trackers"]
 
   initialize: ->
+    @collection.bind("reset", @render)
     @render()
 
   render: =>

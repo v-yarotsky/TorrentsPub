@@ -1,6 +1,7 @@
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'sprockets'
 require 'torrents_pub'
+require 'torrents_pub/environment'
 
 map '/assets' do
   sprockets = Sprockets::Environment.new
@@ -11,6 +12,8 @@ map '/assets' do
 
   run sprockets
 end
+
+TorrentsPub::Environment.setup
 
 map '/' do
   run TorrentsPub::App

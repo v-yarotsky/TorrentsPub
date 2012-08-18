@@ -4,7 +4,8 @@ class TorrentsPub.SettingsView extends Backbone.View
   template: JST["templates/settings/settings"]
 
   initialize: ->
-    @trackers = new TorrentsPub.Trackers([{ name: 'Foo' }, { name: 'Bar' }])
+    @trackers = new TorrentsPub.Trackers()
+    @trackers.fetch()
 
   render: =>
     @$el.html(@template())
