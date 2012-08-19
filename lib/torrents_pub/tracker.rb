@@ -7,6 +7,7 @@ module TorrentsPub
     property :login_url, String
     property :login, String
     property :password, String
+    property :rules, Json, default: []
   end
 end
 

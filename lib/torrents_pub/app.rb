@@ -23,6 +23,16 @@ module TorrentsPub
       end
     end
 
+    post '/trackers/:id' do
+      puts params.inspect
+      tracker = Tracker.first_or_create(id: params[:id])
+      if tracker.update(params[:tracker])
+        tracker.to_json
+      else
+        400
+      end
+    end
+
     get '*' do
       @torrents = Torrent.all
       slim :index, :torrents => @torrents

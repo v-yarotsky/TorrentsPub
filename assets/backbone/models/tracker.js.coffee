@@ -1,10 +1,19 @@
+#= depend_on models/rules.js
+
 window.TorrentsPub ?= {}
 
 class TorrentsPub.Tracker extends Backbone.Model
   urlRoot: '/trackers'
   defaults:
-    name: "Fuck Bill Gates"
-    login_url: 'http://google.com'
-    login: 'vasya'
-    password: 'pupkin'
+    rules: []
+
+  initialize: ->
+    @on("change", @initRulesCollection)
+
+  initRulesCollection: =>
+    unless @get('rules') instanceof Backbone.Model
+      rules = @get('rules')
+      rulesCollection = new TorrentsPub.Rules(rules)
+      @set({ rules: rulesCollection }, { silent: true })
+
 
