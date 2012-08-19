@@ -8,7 +8,7 @@ class TorrentsPub.TrackersView extends Backbone.View
   render: =>
     @$el.empty()
     for tracker in @collection.models
-      trackerView = new TorrentsPub.TrackerView(model: tracker)
+      trackerView = new TorrentsPub.TrackerListItemView(model: tracker)
       @$el.append(trackerView.render().el)
     @
 

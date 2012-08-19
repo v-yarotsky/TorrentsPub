@@ -10,6 +10,7 @@ module TorrentsPub
     property :tracker_link, String
     property :tracker, String
     property :category, String
+    property :media_type, String
     property :downloaded, Boolean, :default => false
   end
 end

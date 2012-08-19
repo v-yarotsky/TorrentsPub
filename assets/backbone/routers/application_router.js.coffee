@@ -21,6 +21,11 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
 
     @downloadsView = new TorrentsPub.DownloadsView()
     @navigationView = new TorrentsPub.NavigationView(el: @elements["navigation"])
+
+    @setUpDispatcherEvents()
+    @navigationView.navigate('scraper')
+
+  setUpDispatcherEvents: ->
     window.eventDispatcher.on('navigate', @navigateTo)
 
     window.eventDispatcher.on 'notification:error', (params) =>
@@ -29,7 +34,8 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
     window.eventDispatcher.on 'notification:info', (params) =>
       window.notifications.push(_.extend(params, type: 'info'))
 
-    @navigationView.navigate('scraper')
+    window.eventDispatcher.on 'notification:success', (params) =>
+      window.notifications.push(_.extend(params, type: 'success'))
 
   navigateTo: (route) =>
     console.log "Navigating to: #{route}"

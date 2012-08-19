@@ -24,7 +24,6 @@ module TorrentsPub
     end
 
     post '/trackers/:id' do
-      puts params.inspect
       tracker = Tracker.first_or_create(id: params[:id])
       if tracker.update(params[:tracker])
         tracker.to_json
@@ -35,6 +34,7 @@ module TorrentsPub
 
     get '*' do
       @torrents = Torrent.all
+      @tracker_types = [:torrents_by, :rutracker_org]
       slim :index, :torrents => @torrents
     end
 

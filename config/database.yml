@@ -1,0 +1,4 @@
+development:
+  default:
+    adapter:  sqlite3
+    database: torrents_pub_development.sqlite

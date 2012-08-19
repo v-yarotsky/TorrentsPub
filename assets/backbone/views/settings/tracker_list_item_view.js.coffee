@@ -1,7 +1,7 @@
 window.TorrentsPub ?= {}
 
-class TorrentsPub.TrackerView extends Backbone.View
-  template: JST["templates/settings/tracker"]
+class TorrentsPub.TrackerListItemView extends Backbone.View
+  template: JST["templates/settings/tracker_list_item"]
   events:
     'click .btn.edit': 'editTracker'
 
