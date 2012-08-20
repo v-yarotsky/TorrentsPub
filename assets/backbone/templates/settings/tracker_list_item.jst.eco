@@ -1,4 +1,4 @@
-<span><%= this.name %></span>
+<span><%= this.tracker_type %></span>
 <span class="actions">
   <a class="btn edit btn-mini btn-primary" href="trackers/<%= this.id %>" title="Edit">
     <i class="icon-edit icon-white"></i>

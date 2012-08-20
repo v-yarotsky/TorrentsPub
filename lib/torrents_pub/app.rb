@@ -23,18 +23,44 @@ module TorrentsPub
       end
     end
 
-    post '/api/trackers/:id' do
-      tracker = Tracker.first_or_create(id: params[:id])
-      if tracker.update(params[:tracker])
+    post '/api/trackers' do
+      tracker_params = JSON.parse(request.body.read.to_s)
+      puts tracker_params.inspect
+      if tracker = Tracker.create(tracker_params)
         tracker.to_json
       else
         400
       end
     end
 
+    put '/api/trackers/:id' do
+      tracker = Tracker.get(params[:id])
+      tracker_params = JSON.parse(request.body.read.to_s)
+      puts tracker_params.inspect
+      if tracker.update(tracker_params)
+        tracker.to_json
+      else
+        400
+      end
+    end
+
+    get '/api/torrents' do
+      Torrent.all.to_json
+    end
+
+    post '/api/refresh_torrents' do
+      begin
+        Tracker.all.each(&:fetch_torrents)
+        ''
+      rescue => e
+        status 500
+        e.message
+      end
+    end
+
     get '*' do
       @torrents = Torrent.all
-      @tracker_types = [:torrents_by, :rutracker_org]
+      @tracker_types = Tracker.available_types
       slim :index, :torrents => @torrents
     end
 

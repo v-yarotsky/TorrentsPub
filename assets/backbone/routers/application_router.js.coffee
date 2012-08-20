@@ -4,6 +4,7 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
   routes:
     'scraper': 'scraper'
     'settings': 'settings'
+    'trackers/new': 'addTracker'
     'trackers/:trackerId': 'editTracker'
     'downloads': 'downloads'
 
@@ -13,7 +14,8 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
       'notifications': $("#notifications")
       'navigation': $("#navigation")
 
-    @scraperView = new TorrentsPub.ScraperView(torrents: window.torrents)
+    @torrents = new TorrentsPub.Torrents(window.torrents)
+    @scraperView = new TorrentsPub.ScraperView(collection: @torrents)
     @settingsView = new TorrentsPub.SettingsView()
     @notifications = new TorrentsPub.Notifications()
     @notificationsView = new TorrentsPub.NotificationsView(collection: @notifications, el: @elements["notifications"])
@@ -47,6 +49,11 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
   settings: =>
     @elements["container"].html(@settingsView.render().el)
 
+  addTracker: =>
+    tracker = new TorrentsPub.Tracker()
+    editTrackerView = new TorrentsPub.EditTrackerView(model: tracker)
+    @elements["container"].html(editTrackerView.render().el)
+
   editTracker: (trackerId) =>
     tracker = new TorrentsPub.Tracker(id: trackerId)
     tracker.fetch
@@ -54,8 +61,8 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
         editTrackerView = new TorrentsPub.EditTrackerView(model: tracker)
         @elements["container"].html(editTrackerView.render().el)
       error: =>
-        @navigate('settings', trigger: true)
         window.eventDispatcher.trigger('notification:error', message: "Could not find tracker with id #{trackerId}")
+        @navigate('settings', trigger: true)
 
   downloads: =>
     @elements["container"].html(@downloadsView.render().el)

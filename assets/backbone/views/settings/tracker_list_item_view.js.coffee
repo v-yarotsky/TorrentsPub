@@ -7,7 +7,7 @@ class TorrentsPub.TrackerListItemView extends Backbone.View
 
   editTracker: (e) =>
     e.preventDefault()
-    window.eventDispatcher.trigger('navigate', @model.url())
+    window.eventDispatcher.trigger('navigate', "/trackers/#{@model.get('id')}")
     false
 
   render: =>

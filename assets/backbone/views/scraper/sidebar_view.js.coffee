@@ -6,6 +6,14 @@ class TorrentsPub.SidebarView extends Backbone.View
   id: 'sidebar'
   className: 'span3'
 
+  events:
+    'click #refresh': 'refreshTorrents'
+
+  refreshTorrents: (e) =>
+    e.preventDefault()
+    window.eventDispatcher.trigger('refreshTorrents')
+
+
   render: =>
     @$el.html(@template())
     $categoriesContainer = @$("#categories-list")

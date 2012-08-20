@@ -6,17 +6,26 @@ module TorrentsPub
     include DataMapper::Resource
 
     property :id, Serial
-    property :name, String
+    property :tracker_type, String, required: true
     property :login, String
     property :password, String
     property :rules, Json, default: []
+
+    def self.available_types
+      Slapjack::AVAILABLE_TRACKERS.keys
+    end
 
     class Rule
       attr_reader :category, :tracker_section, :required_keywords, :denied_keywords, :min_seeders
 
       def initialize(attributes)
+        @attributes = attributes
         @category, @tracker_section, @required_keywords, @denied_keywords, @min_seeders = 
           attributes.values_at("category", "tracker_section", "required_keywords", "denied_keywords", "min_seeders")
+      end
+
+      def to_json(*args)
+        @attributes.to_json(*args)
       end
     end
 
@@ -33,10 +42,10 @@ module TorrentsPub
     end
 
     def fetch_torrents
-      @tracker = Slapjack::Trackers::TorrentsByTracker.new(login, password, tracker_sections, '')
+      @tracker = Slapjack::AVAILABLE_TRACKERS.fetch(tracker_type).new(login, password, tracker_sections, '')
       @tracker.torrents.each do |torrent_attributes|
         torrent = Torrent.first_or_new(link: torrent_attributes.delete(:link))
-        torrent.tracker = name
+        torrent.tracker = tracker_type
         torrent.category = categories[torrent_attributes[:tracker_section]]
         torrent.attributes = torrent_attributes
         torrent.save!

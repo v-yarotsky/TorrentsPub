@@ -1,7 +1,7 @@
-<input type="text" name="tracker[rules][][category]" placeholder="Category" value="<%= this.category %>"/>
-<input type="text" name="tracker[rules][][tracker_section]" placeholder="Tracker section" value="<%= this.tracker_section %>"/>
-<input type="text" name="tracker[rules][][required_keywords]" placeholder="Required keywords" value="<%= this.required_keywords %>"/>
-<input type="text" name="tracker[rules][][denied_keywords]" placeholder="Denied keywords" value="<%= this.denied_keywords %>"/>
-<input type="text" name="tracker[rules][][min_seeders]" placeholder="Min seeders" value="<%= this.min_seeders %>"/>
+<input type="text" name="rule_category" placeholder="Category" value="<%= @category %>"/>
+<input type="text" name="rule_tracker_section" placeholder="Tracker section" value="<%= @tracker_section %>"/>
+<input type="text" name="rule_required_keywords" placeholder="Required keywords" value="<%= @required_keywords %>"/>
+<input type="text" name="rule_denied_keywords" placeholder="Denied keywords" value="<%= @denied_keywords %>"/>
+<input type="text" name="rule_min_seeders" placeholder="Min seeders" value="<%= @min_seeders %>"/>
 <a href="#" class="btn remove btn-danger" title="Remove">Remove</a>
 

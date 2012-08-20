@@ -11,6 +11,10 @@
       <a href="#"><span class="pill category-green"></span>Music</a>
     </li>
   </ul>
+  <span class="header">Actions</span>
+  <div>
+    <a id="refresh" href="#" class="btn btn-large"><i class="icon-refresh"></i>Fetch</a>
+  </div>
   <!--
   <span class="header">Trackers</span>
   <form class="form-inline"> 
