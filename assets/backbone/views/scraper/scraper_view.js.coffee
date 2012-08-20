@@ -11,7 +11,7 @@ class TorrentsPub.ScraperView extends Backbone.View
   categorize: (torrents) ->
     categories = _([])
     for torrent in torrents
-      category = categories.find (c) -> c.get('name') == torrent.media_type
+      category = categories.find (c) -> c.get('name') == torrent.category
       if category
         category.get('torrents').push(@instantiateTorrent(torrent))
       else
@@ -24,7 +24,7 @@ class TorrentsPub.ScraperView extends Backbone.View
     torrents.reset(@instantiateTorrent(torrent))
 
     new TorrentsPub.Category
-      name: torrent.media_type
+      name: torrent.category
       colorClass: @nextCategoryColor()
       torrents: torrents
 

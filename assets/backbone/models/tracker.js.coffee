@@ -3,7 +3,7 @@
 window.TorrentsPub ?= {}
 
 class TorrentsPub.Tracker extends Backbone.Model
-  urlRoot: '/trackers'
+  urlRoot: '/api/trackers'
   defaults:
     rules: []
 

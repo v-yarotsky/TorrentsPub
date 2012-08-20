@@ -4,7 +4,7 @@
     border-color: <%= this.border %>;
   }
   
-  .table.color-<%= this.id %> th, .table.color-<%= this.id%> td {
+  .table.color-<%= this.id %> th, .table.color-<%= this.id %> td {
     border-color: <%= this.border %>;
   }
     

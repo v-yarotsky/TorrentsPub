@@ -2,13 +2,13 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.ColorGenerator
   goldenRatioConjugate: 0.618033988749895
-  startingNumber: 1 #random number
+  startingNumber: 40
   id: 1
 
   nextColor: ->
     @template ?= JST["templates/scraper/colors"]
     @startingNumber += @goldenRatioConjugate
-    @startingNumber *= 6
+    @startingNumber *= 4
     @startingNumber %= 255
     @id += 1
     style = @template

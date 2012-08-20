@@ -3,15 +3,15 @@ module TorrentsPub
     include DataMapper::Resource
 
     property :id, Serial
-    property :title, String
+    property :title, String, required: true, length: 1..500
     property :size, Float
     property :seeders, Integer
-    property :link, String
+    property :link, String, required: true, unique_index: true
     property :tracker_link, String
-    property :tracker, String
-    property :category, String
-    property :media_type, String
-    property :downloaded, Boolean, :default => false
+    property :tracker, String, required: true
+    property :tracker_section, String, required: true
+    property :category, String, required: true
+    property :downloaded, Boolean, default: false
   end
 end
 

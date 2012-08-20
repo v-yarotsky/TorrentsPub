@@ -3,7 +3,6 @@ require 'rubygems'
 require 'bundler'
 require 'jasmine-headless-webkit'
 require 'rack'
-require 'trackers/torrents_by'
 require 'data_mapper'
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'torrents_pub/app'
@@ -38,14 +37,7 @@ end
 
 task :fetch_torrents do
   TorrentsPub::Environment.setup
-
-  TorrentsPub::Tracker.all.each do |tracker|
-    torrents = tracker.torrents
-    media_types = tracker.rules.inject({}) { |memo, rule| memo[rule["tracker_section"]] = rule["category"]; memo}
-    torrents.each do |t|
-      TorrentsPub::Torrent.create!(t.merge(tracker: tracker.name, media_type: media_types[t[:category]]))
-    end
-  end
+  TorrentsPub::Tracker.all.each(&:fetch_torrents)
 end
 
 task :default => :server

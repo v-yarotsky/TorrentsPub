@@ -1,4 +1,5 @@
-require 'trackers/torrents_by'
+require 'slapjack/trackers'
+require 'torrents_pub/torrent'
 
 module TorrentsPub
   class Tracker
@@ -10,21 +11,36 @@ module TorrentsPub
     property :password, String
     property :rules, Json, default: []
 
-    class TorrentFilter
-      def initialize(rules)
-        @rules = rules
-      end
+    class Rule
+      attr_reader :category, :tracker_section, :required_keywords, :denied_keywords, :min_seeders
 
-      def filter(torrents)
-        torrents
+      def initialize(attributes)
+        @category, @tracker_section, @required_keywords, @denied_keywords, @min_seeders = 
+          attributes.values_at("category", "tracker_section", "required_keywords", "denied_keywords", "min_seeders")
       end
     end
 
-    def torrents
-      tracker_sections = rules.map { |r| r["tracker_section"] }
-      @tracker = Trackers::TorrentsBy.new(login, password, tracker_sections, '')
-      @filter = TorrentFilter.new(rules)
-      @filter.filter @tracker.torrents
+    def rules
+      attribute_get(:rules).map(&Rule.method(:new))
+    end
+
+    def tracker_sections
+      rules.map(&:tracker_section)
+    end
+
+    def categories
+      rules.each_with_object({}) { |rule, result| result[rule.tracker_section] = rule.category }
+    end
+
+    def fetch_torrents
+      @tracker = Slapjack::Trackers::TorrentsByTracker.new(login, password, tracker_sections, '')
+      @tracker.torrents.each do |torrent_attributes|
+        torrent = Torrent.first_or_new(link: torrent_attributes.delete(:link))
+        torrent.tracker = name
+        torrent.category = categories[torrent_attributes[:tracker_section]]
+        torrent.attributes = torrent_attributes
+        torrent.save!
+      end
     end
   end
 end
