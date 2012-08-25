@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Scraper ?= {}
 
-class TorrentsPub.CategoryView extends Backbone.View
+class TorrentsPub.Scraper.CategoryView extends Backbone.View
   template: JST["templates/scraper/category"]
 
   events:
@@ -27,7 +28,7 @@ class TorrentsPub.CategoryView extends Backbone.View
     $torrentsContainer = @$("tbody")
     $torrentsContainer.empty()
     for torrent in @torrents.models
-      torrentView = new TorrentsPub.TorrentView(model: torrent)
+      torrentView = new TorrentsPub.Scraper.TorrentView(model: torrent)
       $torrentsContainer.append(torrentView.render().el)
     @
 

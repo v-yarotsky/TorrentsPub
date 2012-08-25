@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Scraper ?= {}
 
-class TorrentsPub.SidebarView extends Backbone.View
+class TorrentsPub.Scraper.SidebarView extends Backbone.View
   template: JST["templates/scraper/sidebar"]
   tagName: 'div'
   id: 'sidebar'
@@ -19,6 +20,6 @@ class TorrentsPub.SidebarView extends Backbone.View
     $categoriesContainer = @$("#categories-list")
     $categoriesContainer.empty()
     for category in @collection.models
-      $categoriesContainer.append(new TorrentsPub.SidebarCategoryView(model: category).render().el)
+      $categoriesContainer.append(new TorrentsPub.Scraper.SidebarCategoryView(model: category).render().el)
     @
 

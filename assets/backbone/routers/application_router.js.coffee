@@ -14,8 +14,8 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
       'notifications': $("#notifications")
       'navigation': $("#navigation")
 
-    @scraperView = new TorrentsPub.ScraperView()
-    @settingsView = new TorrentsPub.SettingsView()
+    @scraperView = new TorrentsPub.Scraper.ScraperView()
+    @settingsView = new TorrentsPub.Settings.SettingsView()
     @notificationsView = new TorrentsPub.NotificationsView(collection: window.notifications, el: @elements["notifications"])
 
     @downloadsView = new TorrentsPub.DownloadsView()

@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Settings ?= {}
 
-class TorrentsPub.SettingsView extends Backbone.View
+class TorrentsPub.Settings.SettingsView extends Backbone.View
   initialize: ->
     @categories = window.applicationData.categories
     # @trackers = new TorrentsPub.Trackers()
@@ -12,7 +13,7 @@ class TorrentsPub.SettingsView extends Backbone.View
     #     @trackersView = new TorrentsPub.TrackersView(collection: @trackers)
     #     @$el.html(@trackersView.render().el)
     #   error: => window.eventDispatcher.trigger('notification:error', title: 'No trackers found', message: 'There are no defined trackers.')
-    @categoriesListView ?= new TorrentsPub.CategoriesListView(collection: @categories)
+    @categoriesListView ?= new TorrentsPub.Settings.CategoriesListView(collection: @categories)
     @$el.html(@categoriesListView.render().el)
     @
 

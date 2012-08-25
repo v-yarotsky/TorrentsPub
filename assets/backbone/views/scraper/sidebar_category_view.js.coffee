@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Scraper ?= {}
 
-class TorrentsPub.SidebarCategoryView extends Backbone.View
+class TorrentsPub.Scraper.SidebarCategoryView extends Backbone.View
   tagName: 'li'
   template: JST["templates/scraper/sidebar_category"]
   events:

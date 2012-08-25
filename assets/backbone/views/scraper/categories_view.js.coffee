@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Scraper ?= {}
 
-class TorrentsPub.CategoriesView extends Backbone.View
+class TorrentsPub.Scraper.CategoriesView extends Backbone.View
   tagName: 'div'
   id: 'categories'
   className: 'span9'
@@ -9,7 +10,7 @@ class TorrentsPub.CategoriesView extends Backbone.View
     @$el.empty()
 
     for category in @collection.models
-      categoryView = new TorrentsPub.CategoryView(model: category)
+      categoryView = new TorrentsPub.Scraper.CategoryView(model: category)
       @$el.append(categoryView.render().el)
     @
 

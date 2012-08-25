@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Settings ?= {}
 
-class TorrentsPub.CategoryListItemView extends Backbone.View
+class TorrentsPub.Settings.CategoryListItemView extends Backbone.View
   template: JST["templates/settings/category_list_item"]
 
   render: =>

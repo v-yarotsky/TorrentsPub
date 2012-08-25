@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Scraper ?= {}
 
-class TorrentsPub.TorrentView extends Backbone.View
+class TorrentsPub.Scraper.TorrentView extends Backbone.View
   template: JST["templates/scraper/torrent"]
   tagName: 'tr'
   
