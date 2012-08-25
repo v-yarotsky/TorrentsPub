@@ -1,0 +1,19 @@
+table.table.table-condensed.category class="#{@activeColorClass}"
+  thead
+    tr
+      th.title colspan="4"
+        .search.controls
+          .input-prepend
+            span.add-on: i.icon-search
+            input.input-medium.filter type="search" placeholder="Search..."
+        #{@name}
+    tr
+      th data-sortfield="title" Title
+      th data-sortfield="seeders" Seeders
+      th data-sortfield="size" Size
+      th
+  tbody
+  tfoot
+    tr
+      th colspan="4"
+        .pull-right: a.btn.btn-small More &rarr;

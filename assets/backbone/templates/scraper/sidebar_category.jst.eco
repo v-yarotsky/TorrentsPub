@@ -1,2 +1,0 @@
-<a href="#"><span class="pill <%= this.colorClass %>"></span><%= this.name %></a>
-

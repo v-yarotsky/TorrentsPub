@@ -9,7 +9,7 @@ require 'torrents_pub/app'
 require 'torrents_pub/environment'
 
 begin
-  Bundler.setup(:default, :development)
+  Bundler.require(:default, :development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
   $stderr.puts "Run `bundle install` to install missing gems"

@@ -1,0 +1,8 @@
+.well.sidebar
+  span.header Categories
+  ul#categories-list.nav.nav-list
+  span.header Actions
+  div
+    a#refresh.btn.btn-large href="#"
+      i.icon-refresh
+      | Fetch

@@ -1,5 +1,9 @@
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'sprockets'
+require 'temple'
+require 'coffee_script'
+require 'slim'
+require 'skim'
 require 'torrents_pub'
 require 'torrents_pub/environment'
 

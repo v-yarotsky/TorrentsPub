@@ -1,0 +1,4 @@
+span #{@name}
+span.actions
+  a.btn.btn-mini.btn-primary.edit href="categories/#{@id}" title="Edit": i.icon-edit.icon-white
+

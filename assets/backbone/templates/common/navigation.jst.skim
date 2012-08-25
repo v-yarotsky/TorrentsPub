@@ -1,0 +1,5 @@
+ul.nav
+  li: a href="scraper" Torrents
+  li: a href="downloads" Downloads
+  li: a href="settings" Settings
+
