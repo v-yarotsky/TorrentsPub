@@ -1,0 +1,7 @@
+p
+  a.btn href="#"
+    i.icon-plus
+    | Add category
+.tabbable.tabs-left
+  ul.nav.nav-tabs
+  .tab-content

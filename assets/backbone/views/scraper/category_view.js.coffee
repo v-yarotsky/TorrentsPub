@@ -19,7 +19,7 @@ class TorrentsPub.Scraper.CategoryView extends Backbone.View
     @$el.toggle(@model.get('visible'))
 
   render: =>
-    @$el.html(@template(@model.toJSON()))
+    @$el.html(@template(@model.toViewJSON()))
     @toggle()
     @renderTorrents(@torrents.models)
     @

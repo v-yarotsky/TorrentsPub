@@ -2,8 +2,8 @@ window.TorrentsPub ?= {}
 
 class TorrentsPub.Rule extends Backbone.Model
   defaults:
-    category: "Movies"
-    trackerSection: 'T.by moview'
+    tracker: "Torrents.by"
+    trackerSection: 'T.by movies'
     requiredKeywords: 'http://google.com'
     deniedKeywords: 'camrip'
 

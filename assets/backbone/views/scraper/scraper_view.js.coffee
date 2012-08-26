@@ -9,7 +9,7 @@ class TorrentsPub.Scraper.ScraperView extends Backbone.View
     @sidebarView ?= new TorrentsPub.Scraper.SidebarView(collection: @categories)
     @sidebarView.on('refreshTorrents', @refreshTorrents)
 
-    @categories.on('reset', @render) # DO IT THE RIGHT WAY!! WTF!!
+    @categories.on('reset', @render)
   
     window.eventDispatcher.on('refreshTorrents', @refreshTorrents)
 

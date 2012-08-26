@@ -1,4 +1,4 @@
-#= depend_on models/rule.js
+#= require models/rule.js
 
 window.TorrentsPub ?= {}
 

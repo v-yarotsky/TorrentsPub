@@ -4,8 +4,6 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
   routes:
     'scraper': 'scraper'
     'settings': 'settings'
-    'trackers/new': 'addTracker'
-    'trackers/:trackerId': 'editTracker'
     'downloads': 'downloads'
 
   initialize: ->
@@ -45,21 +43,6 @@ class TorrentsPub.ApplicationRouter extends Backbone.Router
 
   settings: =>
     @elements["container"].html(@settingsView.render().el)
-
-  addTracker: =>
-    tracker = new TorrentsPub.Tracker()
-    editTrackerView = new TorrentsPub.EditTrackerView(model: tracker)
-    @elements["container"].html(editTrackerView.render().el)
-
-  editTracker: (trackerId) =>
-    tracker = new TorrentsPub.Tracker(id: trackerId)
-    tracker.fetch
-      success: =>
-        editTrackerView = new TorrentsPub.EditTrackerView(model: tracker)
-        @elements["container"].html(editTrackerView.render().el)
-      error: =>
-        window.eventDispatcher.trigger('notification:error', message: "Could not find tracker with id #{trackerId}")
-        @navigate('settings', trigger: true)
 
   downloads: =>
     @elements["container"].html(@downloadsView.render().el)

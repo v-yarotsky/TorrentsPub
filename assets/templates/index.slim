@@ -5,16 +5,17 @@ html lang="en"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title TorrentsPub
     script type="text/javascript" src="/assets/javascripts/vendor.js"
-    script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"
-    script type="text/javascript" src="/assets/bootstrap/js/bootstrap-typeahead.js"
+    script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"
+    /! script type="text/javascript" src="/assets/bootstrap/js/bootstrap-typeahead.js" 
     script type="text/javascript" src="/assets/application.js"
     link   rel="stylesheet" type="text/css" href="/assets/application.css"
-    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css"
-    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-responsive.css"
+    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.min.css"
+    link   rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-responsive.min.css"
 
     javascript:
       window.torrents = #{{@torrents.to_json}}
-      window.trackerTypes = #{{@tracker_types.to_json}}
+      window.categories = #{{@categories.to_json}}
+      window.trackers = #{{@trackers.names.to_json}}
 
   body
     div.navbar.navbar-fixed-top

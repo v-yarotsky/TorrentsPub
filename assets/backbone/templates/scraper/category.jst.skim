@@ -1,4 +1,4 @@
-table.table.table-condensed.category class="#{@activeColorClass}"
+table.table.table-condensed.category class="#{@colorClass}"
   thead
     tr
       th.title colspan="4"

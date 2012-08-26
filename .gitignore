@@ -10,3 +10,5 @@ coverage/
 .jhw-cache/
 *.db
 *.sqlite
+config/trackers.yml
+.pryrc

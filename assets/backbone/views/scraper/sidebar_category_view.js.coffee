@@ -11,7 +11,7 @@ class TorrentsPub.Scraper.SidebarCategoryView extends Backbone.View
     @model.bind('change:visible', @render)
 
   render: =>
-    @$el.html(@template(@model.toJSON()))
+    @$el.html(@template(@model.toViewJSON()))
     @
 
   toggle: (e) =>

@@ -1,6 +1,7 @@
 window.TorrentsPub ?= {}
+window.TorrentsPub.Settings ?= {}
 
-class TorrentsPub.RulesView extends Backbone.View
+class TorrentsPub.Settings.RulesView extends Backbone.View
   template: JST["templates/settings/rules"]
 
   className: 'well form-inline'
@@ -21,7 +22,7 @@ class TorrentsPub.RulesView extends Backbone.View
     false
 
   renderRule: (rule) =>
-    ruleView = new TorrentsPub.RuleView(model: rule)
+    ruleView = new TorrentsPub.Settings.RuleView(model: rule)
     @$el.append(ruleView.render().el)
 
   render: =>

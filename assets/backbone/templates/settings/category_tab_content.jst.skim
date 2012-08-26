@@ -1,0 +1,12 @@
+form.form-horizontal
+  .control-group
+    label.control-label for="name" Name
+    .controls
+      input type="text" name="name" value="#{@name}"
+  .rules
+  .form-actions
+    button.btn.btn-primary.save type="submit"
+      | Save
+    button.btn.btn-danger.remove type="button"
+      i.icon-white.icon-trash
+      |  Remove

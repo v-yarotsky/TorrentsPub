@@ -9,7 +9,7 @@ class TorrentsPub.NotificationView extends Backbone.View
   
   render: =>
     @$el.hide()
-    @$el.html(@template(@model.toJSON()))
+    @$el.html(@template(@model.toViewJSON()))
     @$el.addClass("alert alert-#{@model.get('type')}")
     @$el.fadeIn(300)
     @

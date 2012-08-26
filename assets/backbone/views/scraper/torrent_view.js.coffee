@@ -6,6 +6,6 @@ class TorrentsPub.Scraper.TorrentView extends Backbone.View
   tagName: 'tr'
   
   render: =>
-    @$el.html(@template(@model.toJSON()))
+    @$el.html(@template(@model.toViewJSON()))
     @
 
