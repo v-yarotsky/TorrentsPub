@@ -5,13 +5,15 @@
     id: 'sidebar'
     className: 'span3'
 
+    initialize: ->
+      @collection.on("reset", @render)
+
     events:
       'click #refresh': 'refreshTorrents'
 
     refreshTorrents: (e) =>
       e.preventDefault()
       window.eventDispatcher.trigger('refreshTorrents')
-
 
     render: =>
       @$el.html(@template())

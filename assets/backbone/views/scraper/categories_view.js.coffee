@@ -4,6 +4,10 @@
     id: 'categories'
     className: 'span9'
 
+    initialize: ->
+      @collection.on('reset', @render)
+      @collection.on('torrents', @render)
+
     render: =>
       @$el.empty()
 

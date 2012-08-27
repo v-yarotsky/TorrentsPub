@@ -3,12 +3,10 @@
     initialize: ->
       @torrents   = window.applicationData.torrents
       @categories = window.applicationData.categories
-      @categoriesView ?= new TorrentsPub.Scraper.CategoriesView(collection: @categories)
-      @sidebarView ?= new TorrentsPub.Scraper.SidebarView(collection: @categories)
+      @categoriesView = new TorrentsPub.Scraper.CategoriesView(collection: @categories)
+      @sidebarView = new TorrentsPub.Scraper.SidebarView(collection: @categories)
       @sidebarView.on('refreshTorrents', @refreshTorrents)
 
-      @categories.on('reset', @render)
-    
       window.eventDispatcher.on('refreshTorrents', @refreshTorrents)
 
     refreshTorrents: =>

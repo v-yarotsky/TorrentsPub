@@ -20,6 +20,8 @@
         category = @find (c) -> c.get('name') == torrent.get('category')
         category.get('torrents').push(torrent)
 
+      category.trigger('torrents', @torrents)
+
     assignColor: (model) =>
       console.log("setting color")
       model.set({ colorClass: @colorGenerator.nextColor() }, silent: true)
