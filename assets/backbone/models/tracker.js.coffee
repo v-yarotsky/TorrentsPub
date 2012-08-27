@@ -1,6 +1,5 @@
 #= depend_on models/rules.js
 
-window.TorrentsPub ?= {}
-
-class TorrentsPub.Tracker extends Backbone.Model
+@module 'TorrentsPub', ->
+  class @Tracker extends Backbone.Model
 

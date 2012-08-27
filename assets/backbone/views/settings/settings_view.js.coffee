@@ -1,13 +1,11 @@
-window.TorrentsPub ?= {}
-window.TorrentsPub.Settings ?= {}
+@module 'TorrentsPub.Settings', ->
+  class @SettingsView extends Backbone.View
+    initialize: ->
+      @categories = window.applicationData.categories
 
-class TorrentsPub.Settings.SettingsView extends Backbone.View
-  initialize: ->
-    @categories = window.applicationData.categories
-
-  render: =>
-    @$el.empty()
-    @categoriesListView ?= new TorrentsPub.Settings.CategoriesListView(collection: @categories)
-    @$el.html(@categoriesListView.render().el)
-    @
+    render: =>
+      @$el.empty()
+      @categoriesListView ?= new TorrentsPub.Settings.CategoriesListView(collection: @categories)
+      @$el.html(@categoriesListView.render().el)
+      @
 

@@ -1,25 +1,23 @@
-window.TorrentsPub ?= {}
-window.TorrentsPub.Scraper ?= {}
+@module 'TorrentsPub.Scraper', ->
+  class @ScraperView extends Backbone.View
+    initialize: ->
+      @torrents   = window.applicationData.torrents
+      @categories = window.applicationData.categories
+      @categoriesView ?= new TorrentsPub.Scraper.CategoriesView(collection: @categories)
+      @sidebarView ?= new TorrentsPub.Scraper.SidebarView(collection: @categories)
+      @sidebarView.on('refreshTorrents', @refreshTorrents)
 
-class TorrentsPub.Scraper.ScraperView extends Backbone.View
-  initialize: ->
-    @torrents   = window.applicationData.torrents
-    @categories = window.applicationData.categories
-    @categoriesView ?= new TorrentsPub.Scraper.CategoriesView(collection: @categories)
-    @sidebarView ?= new TorrentsPub.Scraper.SidebarView(collection: @categories)
-    @sidebarView.on('refreshTorrents', @refreshTorrents)
+      @categories.on('reset', @render)
+    
+      window.eventDispatcher.on('refreshTorrents', @refreshTorrents)
 
-    @categories.on('reset', @render)
-  
-    window.eventDispatcher.on('refreshTorrents', @refreshTorrents)
+    refreshTorrents: =>
+      @torrents.refresh =>
+        @torrents.fetch()
 
-  refreshTorrents: =>
-    @torrents.refresh =>
-      @torrents.fetch()
-
-  render: =>
-    @$el.empty()
-    @$el.append(@sidebarView.render().el)
-    @$el.append(@categoriesView.render().el)
-    @
+    render: =>
+      @$el.empty()
+      @$el.append(@sidebarView.render().el)
+      @$el.append(@categoriesView.render().el)
+      @
 

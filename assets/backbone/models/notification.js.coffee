@@ -1,4 +1,3 @@
-window.TorrentsPub ?= {}
-
-class TorrentsPub.Notification extends Backbone.Model
+@module 'TorrentsPub', ->
+  class @Notification extends Backbone.Model
 

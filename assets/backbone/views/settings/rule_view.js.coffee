@@ -1,28 +1,25 @@
-window.TorrentsPub ?= {}
-window.TorrentsPub.Settings ?= {}
+@module 'TorrentsPub.Settings', ->
+  class @RuleView extends Backbone.View
+    template: JST["templates/settings/rule"]
 
-class TorrentsPub.Settings.RuleView extends Backbone.View
-  template: JST["templates/settings/rule"]
+    tagName: 'div'
+    className: 'rule'
 
-  tagName: 'div'
-  className: 'rule'
+    events:
+      'click .btn.remove': 'removeRule'
 
-  events:
-    'click .btn.remove': 'removeRule'
+    removeRule: (e) =>
+      e.preventDefault()
+      @model.trigger("destroy")
+      @remove()
 
-  removeRule: (e) =>
-    e.preventDefault()
-    @model.trigger("destroy")
-    @remove()
+      false
 
-    false
-
-  render: =>
-    @$el.html(@template(@model.toViewJSON()))
-    $trackerSelectBox = @$("select[name='rule_tracker_name']")
-    for tracker in window.applicationData.trackers
-      $trackerSelectBox.append("<option value='#{tracker}'>#{tracker}</option>")
-    $trackerSelectBox.find("option[value='#{@model.get('tracker_name')}']").attr("selected", true)
-    @
-
+    render: =>
+      @$el.html(@template(@model.toViewJSON()))
+      $trackerSelectBox = @$("select[name='rule_tracker_name']")
+      for tracker in window.applicationData.trackers
+        $trackerSelectBox.append("<option value='#{tracker}'>#{tracker}</option>")
+      $trackerSelectBox.find("option[value='#{@model.get('tracker_name')}']").attr("selected", true)
+      @
 

@@ -1,6 +1,5 @@
 #= depend_on models/notification.js
 
-window.TorrentsPub ?= {}
-
-class TorrentsPub.Notifications extends Backbone.Collection
-  model: TorrentsPub.Notification
+@module 'TorrentsPub', ->
+  class @Notifications extends Backbone.Collection
+    model: TorrentsPub.Notification

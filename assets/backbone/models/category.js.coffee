@@ -1,29 +1,29 @@
 #= require models/rules.js
 
-window.TorrentsPub ?= {}
+@module 'TorrentsPub', ->
+  class @Category extends Backbone.Model
+    urlRoot: '/api/categories'
+    attrWhitelist: ['name', 'rules']
 
-class TorrentsPub.Category extends Backbone.Model
-  urlRoot: '/api/categories'
-  attrWhitelist: ['name', 'rules']
+    defaults:
+      visible: true
 
-  defaults:
-    visible: true
+    initialize: ->
+      @set(rules: new TorrentsPub.Rules(@get("rules")))
+      @set(torrents: new TorrentsPub.CategoryTorrents())
 
-  initialize: ->
-    @set(rules: new TorrentsPub.Rules(@get("rules")))
-    @set(torrents: new TorrentsPub.CategoryTorrents())
+    parse: (data) ->
+      _.extend(data, rules: new TorrentsPub.Rules(data["rules"]))
 
-  parse: (data) ->
-    _.extend(data, rules: new TorrentsPub.Rules(data["rules"]))
+    toggle: ->
+      @set(visible: !@get('visible'))
 
-  toggle: ->
-    @set(visible: !@get('visible'))
+    activeColorClass: ->
+      if @get('visible') == true
+        @get('colorClass')
+      else
+        'gray'
 
-  activeColorClass: ->
-    if @get('visible') == true
-      @get('colorClass')
-    else
-      'gray'
+    toViewJSON: ->
+      _.extend(_.clone(@attributes), colorClass: @activeColorClass())
 
-  toViewJSON: ->
-    _.extend(_.clone(@attributes), colorClass: @activeColorClass())

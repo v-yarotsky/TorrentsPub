@@ -1,28 +1,20 @@
+#= require util
+#= require backbone_extensions
 #= require_tree .
 #= require_self
 
-window.TorrentsPub ?= {}
+@module 'TorrentsPub', ->
+  class @ApplicationData
+    constructor: ->
+      @torrents = new TorrentsPub.Torrents()
+      @categories = new TorrentsPub.Categories(@torrents, window.categories)
+      @trackers = []
 
-Backbone.Model.prototype.toViewJSON = ->
-  _.clone(@attributes)
+      @loadInitialData()
 
-Backbone.Model.prototype.toJSON = ->
-  if @attrWhitelist?
-    _.pick(@attributes, @attrWhitelist)
-  else
-    _.clone(@attributes)
-
-class TorrentsPub.ApplicationData
-  constructor: ->
-    @torrents = new TorrentsPub.Torrents()
-    @categories = new TorrentsPub.Categories(@torrents, window.categories)
-    @trackers = []
-
-    @loadInitialData()
-
-  loadInitialData: ->
-    @torrents.reset(window.torrents)
-    @trackers = window.trackers
+    loadInitialData: ->
+      @torrents.reset(window.torrents)
+      @trackers = window.trackers
 
 $ ->
   window.eventDispatcher = _.clone(Backbone.Events)

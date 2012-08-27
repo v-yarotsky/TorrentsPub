@@ -1,8 +1,6 @@
 #= require models/rule.js
 
-window.TorrentsPub ?= {}
-
-class TorrentsPub.Rules extends Backbone.Collection
-  model: TorrentsPub.Rule
-
+@module 'TorrentsPub', ->
+  class @Rules extends Backbone.Collection
+    model: TorrentsPub.Rule
 
