@@ -1,4 +1,4 @@
 a href="#"
-  span.pill class="#{@colorClass}"
-  #{@name}
+  span.pill class=@colorClass
+  = @name
 

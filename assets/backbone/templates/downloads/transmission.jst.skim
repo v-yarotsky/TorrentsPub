@@ -1,2 +1,2 @@
-iframe#transmission src="#{@transmissionIframeSrc}"
+iframe#transmission src=@transmissionIframeSrc
 

@@ -1,4 +1,4 @@
-table.table.table-condensed.category class="#{@colorClass}"
+table.table.table-condensed.category class=@colorClass
   thead
     tr
       th.title colspan="4"
@@ -6,7 +6,7 @@ table.table.table-condensed.category class="#{@colorClass}"
           .input-prepend
             span.add-on: i.icon-search
             input.input-medium.filter type="search" placeholder="Search..."
-        #{@name}
+        = @name
     tr
       th data-sortfield="title" Title
       th data-sortfield="seeders" Seeders
@@ -17,3 +17,4 @@ table.table.table-condensed.category class="#{@colorClass}"
     tr
       th colspan="4"
         .pull-right: a.btn.btn-small More &rarr;
+

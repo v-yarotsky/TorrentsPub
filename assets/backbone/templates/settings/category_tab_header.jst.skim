@@ -1,2 +1,2 @@
-a href="#tab-category#{@id}" data-toggle="tab": #{@name}
+a href="#tab-category#{@id}" data-toggle="tab" = @name
 

@@ -1,8 +1,10 @@
 select name="rule_tracker_name"
   option disabled="disabled" required="required" Choose tracker
-input type="text" name="rule_tracker_section" placeholder="Tracker section" value="#{@tracker_section}"
-input type="text" name="rule_required_keywords" placeholder="Required keywords" value="#{@required_keywords}"
-input type="text" name="rule_denied_keywords" placeholder="Denied keywords" value="#{@denied_keywords}"
-input type="text" name="rule_min_seeders" placeholder="Min seeders" value="#{@min_seeders}"
+  - for tracker in @available_trackers
+    option value=tracker selected=(@tracker_name == tracker) = tracker
+input type="text" name="rule_tracker_section" placeholder="Tracker section" value=@tracker_section
+input type="text" name="rule_required_keywords" placeholder="Required keywords" value=@required_keywords
+input type="text" name="rule_denied_keywords" placeholder="Denied keywords" value=@denied_keywords
+input type="text" name="rule_min_seeders" placeholder="Min seeders" value=@min_seeders
 a.btn.btn-danger.remove href="#" title="Remove": i.icon-white.icon-remove
 

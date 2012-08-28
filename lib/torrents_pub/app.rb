@@ -67,7 +67,7 @@ module TorrentsPub
     end
 
     get '/api/torrents' do
-      Torrent.all.to_json
+      Torrent.all.to_json 
     end
 
     post '/api/refresh_torrents' do

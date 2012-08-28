@@ -1,6 +1,6 @@
-td #{@title}
-td.seeders #{@seeders}
-td.size #{@size}
+td = @title
+td.seeders = @seeders
+td.size = @size
 td.btn-group.actions
   a.btn.btn-small.btn-primary href="#" title="Download": i.icon-download.icon-white
   a.btn.btn-small.btn-danger href="#" title="Delete": i.icon-trash.icon-white

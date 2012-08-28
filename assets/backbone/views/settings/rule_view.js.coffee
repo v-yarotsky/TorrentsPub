@@ -17,9 +17,5 @@
 
     render: =>
       @$el.html(@template(@model.toViewJSON()))
-      $trackerSelectBox = @$("select[name='rule_tracker_name']")
-      for tracker in window.applicationData.trackers
-        $trackerSelectBox.append("<option value='#{tracker}'>#{tracker}</option>")
-      $trackerSelectBox.find("option[value='#{@model.get('tracker_name')}']").attr("selected", true)
       @
 
