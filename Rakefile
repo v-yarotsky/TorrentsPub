@@ -42,7 +42,8 @@ task :console => :environment do
 end
 
 task :fetch_torrents => :environment do
-  TorrentsPub::Tracker.all.each(&:fetch_torrents)
+  trackers ||= TorrentsPub::Trackers.new(YAML.load(File.read(File.expand_path('../config/trackers.yml', __FILE__))))
+  trackers.each(&:fetch_torrents)
 end
 
 task :environment do

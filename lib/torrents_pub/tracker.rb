@@ -15,9 +15,11 @@ module TorrentsPub
     def fetch_torrents
       @tracker = Slapjack::AVAILABLE_TRACKERS.fetch(@tracker_type).new(@login, @password, @tracker_sections.map(&:name), '')
       @tracker.torrents.each do |torrent_attributes|
+        tracker_section = @tracker_sections.detect { |t| t.name == torrent_attributes[:tracker_section] }
+        next unless tracker_section.rule.matches?(torrent_attributes)
         torrent = Torrent.first_or_new(link: torrent_attributes.delete(:link))
         torrent.tracker = @tracker_type
-        torrent.category = @tracker_sections.detect { |t| t.name == torrent_attributes[:tracker_section] }.category
+        torrent.category = tracker_section.category
         torrent.attributes = torrent_attributes
         torrent.save!
       end
