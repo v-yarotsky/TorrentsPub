@@ -35,9 +35,18 @@ task :server do
   server.start
 end
 
-task :fetch_torrents do
-  TorrentsPub::Environment.setup
+task :console => :environment do
+  require 'irb'
+  ARGV.clear
+  IRB.start
+end
+
+task :fetch_torrents => :environment do
   TorrentsPub::Tracker.all.each(&:fetch_torrents)
+end
+
+task :environment do
+  TorrentsPub::Environment.setup
 end
 
 task :default => :server

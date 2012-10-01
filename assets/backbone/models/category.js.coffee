@@ -25,5 +25,5 @@
         'gray'
 
     toViewJSON: ->
-      _.extend(_.clone(@attributes), colorClass: @activeColorClass())
+      _.extend(super, colorClass: @activeColorClass())
 

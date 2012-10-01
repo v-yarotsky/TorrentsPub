@@ -7,4 +7,4 @@
       deniedKeywords: 'camrip'
 
     toViewJSON: ->
-      _.extend(_.clone(@attributes), available_trackers: window.applicationData.trackers)
+      _.extend(super, available_trackers: window.applicationData.trackers)
