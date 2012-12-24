@@ -1,4 +1,4 @@
-require 'slapjack/trackers'
+require 'torrents_pub/scrape/trackers'
 require 'torrents_pub/torrent'
 
 module TorrentsPub
@@ -13,10 +13,10 @@ module TorrentsPub
 
 
     def fetch_torrents
-      @tracker = Slapjack::AVAILABLE_TRACKERS.fetch(@tracker_type).new(@login, @password, @tracker_sections.map(&:name), '')
+      @tracker = Scrape::AVAILABLE_TRACKERS.fetch(@tracker_type).new(@login, @password, @tracker_sections.map(&:tracker_section), '')
       @tracker.torrents.each do |torrent_attributes|
-        tracker_section = @tracker_sections.detect { |t| t.name == torrent_attributes[:tracker_section] }
-        next unless tracker_section.rule.matches?(torrent_attributes)
+        tracker_section = @tracker_sections.detect { |t| t.tracker_section == torrent_attributes[:tracker_section] }
+        next unless tracker_section && tracker_section.match?(torrent_attributes)
         torrent = Torrent.first_or_new(link: torrent_attributes.delete(:link))
         torrent.tracker = @tracker_type
         torrent.category = tracker_section.category

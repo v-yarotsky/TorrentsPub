@@ -38,6 +38,7 @@ end
 task :console => :environment do
   require 'irb'
   ARGV.clear
+  include TorrentsPub
   IRB.start
 end
 
@@ -50,6 +51,6 @@ task :environment do
   TorrentsPub::Environment.setup
 end
 
-task :default => :server
+task :default => :spec
 
 

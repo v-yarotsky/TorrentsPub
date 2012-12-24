@@ -18,4 +18,5 @@ group :development, :test do
   gem 'guard-jasmine-headless-webkit', '~> 0.3'
   gem 'rspec', '~> 2.11'
   gem 'rack-test', '~> 0.6'
+  gem "pry"
 end

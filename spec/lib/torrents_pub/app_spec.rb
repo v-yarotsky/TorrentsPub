@@ -12,6 +12,7 @@ require 'rspec'
 require 'rack/test'
 require 'rspec/autorun'
 
+=begin
 module TorrentsPub
   describe App do
     include Rack::Test::Methods
@@ -47,4 +48,4 @@ module TorrentsPub
     end
   end
 end
-
+=end

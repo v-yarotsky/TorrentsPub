@@ -8,14 +8,12 @@ module TorrentsPub
     extend Forwardable
     def_delegators :@trackers, :each
 
-    class TrackerSection < Struct.new(:name, :category, :rule)
-    end
-
     def initialize(config)
       @trackers = []
       config.each do |name, options|
-        tracker_sections = tracker_sections_by_tracker[name].to_a
-        tracker = Tracker.new(symbolize_keys(options).merge(:name => name, :tracker_sections => tracker_sections))
+        tracker_sections = tracker_sections_by_tracker_name(name)
+        tracker_attributes = symbolize_keys(options).merge(:name => name, :tracker_sections => tracker_sections)
+        tracker = Tracker.new(tracker_attributes)
         @trackers.push tracker
       end
     end
@@ -30,9 +28,9 @@ module TorrentsPub
 
     private
 
-    def tracker_sections_by_tracker
-      @tracker_sections_by_tracker ||= Category.all.each_with_object({}) do |c, result|
-        c.rules.each { |r| (result[r.tracker_name] ||= []).push TrackerSection.new(r.tracker_section, c.name, r) }
+    def tracker_sections_by_tracker_name(tracker_name)
+      Category.all.each_with_object([]) do |c, r|
+        r.concat(c.tracker_sections_by_tracker_name(tracker_name))
       end
     end
 

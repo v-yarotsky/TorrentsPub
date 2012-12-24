@@ -1,4 +1,4 @@
-require 'torrents_pub/rule'
+require 'torrents_pub/tracker_section'
 
 module TorrentsPub
   class Category
@@ -6,10 +6,17 @@ module TorrentsPub
 
     property :id, Serial
     property :name, String, required: true
-    property :rules, Json, default: []
+    property :tracker_sections, Json, default: []
 
-    def rules
-      attribute_get(:rules).map(&Rule.method(:new))
+
+    def tracker_sections_by_tracker_name(tracker_name)
+      tracker_sections.select { |s| s.tracker_name == tracker_name }
+    end
+
+    def tracker_sections
+      @tracker_sections ||= attribute_get(:tracker_sections).map do |tracker_section_attributes|
+        TrackerSection.new(self.name, tracker_section_attributes)
+      end
     end
   end
 end
