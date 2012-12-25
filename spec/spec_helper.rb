@@ -17,7 +17,7 @@ require 'rspec/autorun'
 
 $:.unshift File.expand_path('../../lib', __FILE__)
 
-require 'torrents_pub/core_ext'
+require 'core/core_ext'
 
 Dir[File.dirname(__FILE__) + "/support/matchers/*.rb"].each { |f| require f }
 

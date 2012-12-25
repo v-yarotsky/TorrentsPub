@@ -1,0 +1,9 @@
+"Torrents.by":
+  tracker_type: "TorrentsBy"
+  login: "inkognito"
+  password: "gnizalgpots"
+
+"Rutracker.org":
+  tracker_type: "RutrackerOrg"
+  login: "_inkognito_"
+  password: "gnizalgpots"

@@ -5,8 +5,9 @@ require 'jasmine-headless-webkit'
 require 'rack'
 require 'data_mapper'
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
-require 'torrents_pub/app'
-require 'torrents_pub/environment'
+$:.unshift File.join(File.dirname(__FILE__))
+require 'app/application'
+require 'app/environment'
 
 begin
   Bundler.require(:default, :development)

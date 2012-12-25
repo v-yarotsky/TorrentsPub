@@ -1,0 +1,10 @@
+select.span2 name="tracker_section_tracker_name"
+  option disabled="disabled" required="required" Choose tracker
+  - for tracker in @available_trackers
+    option value=tracker selected=(@tracker_name == tracker) = tracker
+input.span3 type="text" name="tracker_section_tracker_section" placeholder="Tracker section" value=@tracker_section
+input.span3 type="text" name="tracker_section_required_keywords" placeholder="Required keywords" value=@required_keywords
+input.span3 type="text" name="tracker_section_denied_keywords" placeholder="Denied keywords" value=@denied_keywords
+input.span1 type="text" name="tracker_section_min_seeders" placeholder="Seeders" value=@min_seeders
+a.btn.btn-danger.remove href="#" title="Remove": i.icon-white.icon-remove
+
