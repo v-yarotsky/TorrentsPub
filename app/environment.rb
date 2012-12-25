@@ -1,8 +1,10 @@
 require 'data_mapper'
 
 module TorrentsPub
+
   class Environment
-    DB_CONFIG_PATH = File.expand_path('../config/database.yml', __FILE__).freeze
+    CONFIG_ROOT = File.expand_path('../config', __FILE__).freeze
+    DB_CONFIG_PATH = File.join(CONFIG_ROOT, 'database.yml').freeze
 
     class << self
 
@@ -30,5 +32,8 @@ module TorrentsPub
 
     end
   end
+
 end
+
+require 'app/application'
 

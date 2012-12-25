@@ -1,10 +1,7 @@
-require 'rubygems'
-require 'bundler/setup'
-
-$:.unshift File.expand_path('../../../lib', __FILE__)
-
+require 'spec_helper'
 require 'app/environment'
-TorrentsPub::App::Environment.setup
+
+TorrentsPub::Environment.setup
 
 require 'app/application'
 
@@ -12,9 +9,8 @@ require 'rspec'
 require 'rack/test'
 require 'rspec/autorun'
 
-=begin
 module TorrentsPub
-  describe App do
+  describe Application do
     include Rack::Test::Methods
 
     def app
@@ -48,4 +44,3 @@ module TorrentsPub
     end
   end
 end
-=end

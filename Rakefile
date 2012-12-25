@@ -20,9 +20,15 @@ end
 require 'rake'
 require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new do |t|
+RSpec::Core::RakeTask.new(:lib_spec) do |t|
   t.pattern = 'spec/lib/**/*_spec.rb'
 end
+
+RSpec::Core::RakeTask.new(:app_spec) do |t|
+  t.pattern = 'spec/app/**/*_spec.rb'
+end
+
+task :spec => [:lib_spec, :app_spec]
 
 Jasmine::Headless::Task.new('jasmine') do |t|
   t.colors = true

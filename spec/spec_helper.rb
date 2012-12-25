@@ -16,6 +16,7 @@ require 'rspec'
 require 'rspec/autorun'
 
 $:.unshift File.expand_path('../../lib', __FILE__)
+$:.unshift File.expand_path('../../', __FILE__)
 
 require 'core/core_ext'
 

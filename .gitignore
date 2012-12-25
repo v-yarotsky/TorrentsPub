@@ -10,5 +10,6 @@ coverage/
 .jhw-cache/
 *.db
 *.sqlite
+*.torrent
 config/trackers.yml
 .pryrc
