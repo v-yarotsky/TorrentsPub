@@ -8,7 +8,7 @@ gem 'json', '~> 1.7'
 gem 'sass', '~> 3.1'
 gem 'eco', '~> 1.0'
 gem 'rake', '~> 0.9'
-gem 'sprockets', '~> 2.0'
+gem 'sprockets', '~> 2.12'
 gem 'datamapper'
 gem 'dm-sqlite-adapter'
 gem "mechanize"
